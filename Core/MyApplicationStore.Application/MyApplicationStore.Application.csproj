@@ -6,4 +6,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyApplicationStore.Domain\MyApplicationStore.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\App\" />
+    <Folder Include="Repositories\Category\" />
+    <Folder Include="Repositories\Developer\" />
+    <Folder Include="Repositories\Authentication\" />
+    <Folder Include="Repositories\User\" />
+  </ItemGroup>
+
 </Project>

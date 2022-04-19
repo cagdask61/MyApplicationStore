@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyApplicationStore.Application.Repositories
+namespace MyApplicationStore.Application.Repositories.Base
 {
     public interface IEntityReadRepository<Entity> : IEntityRepository<Entity>
         where Entity : class, IEntity

@@ -14,12 +14,4 @@
     <ProjectReference Include="..\MyApplicationStore.Domain\MyApplicationStore.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\App\" />
-    <Folder Include="Repositories\Category\" />
-    <Folder Include="Repositories\Developer\" />
-    <Folder Include="Repositories\Authentication\" />
-    <Folder Include="Repositories\User\" />
-  </ItemGroup>
-
 </Project>

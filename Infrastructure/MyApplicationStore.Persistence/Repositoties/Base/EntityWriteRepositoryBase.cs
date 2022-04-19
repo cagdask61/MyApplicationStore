@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using MyApplicationStore.Application.Repositories;
+using MyApplicationStore.Application.Repositories.Base;
 using MyApplicationStore.Domain.Entitites.Abstract;
 using MyApplicationStore.Persistence.Contexts;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyApplicationStore.Persistence.Repositoties
+namespace MyApplicationStore.Persistence.Repositoties.Base
 {
     public class EntityWriteRepositoryBase<Entity> : IEntityWriteRepository<Entity>
         where Entity : class, IEntity

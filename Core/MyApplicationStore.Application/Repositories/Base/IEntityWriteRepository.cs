@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyApplicationStore.Application.Repositories
+namespace MyApplicationStore.Application.Repositories.Base
 {
     public interface IEntityWriteRepository<Entity> : IEntityRepository<Entity>
         where Entity : class, IEntity

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyApplicationStore.Application.Repositories;
+using MyApplicationStore.Application.Repositories.Base;
 using MyApplicationStore.Domain.Entitites.Abstract;
 using MyApplicationStore.Persistence.Contexts;
 using System;
@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyApplicationStore.Persistence.Repositoties
+namespace MyApplicationStore.Persistence.Repositoties.Base
 {
     public class EntityReadRepositoryBase<Entity> : IEntityReadRepository<Entity>
         where Entity : class, IEntity

@@ -28,25 +28,26 @@ namespace MyApplicationStore.Persistence.Repositoties.Base
             return filter == null ? Table : Table.Where(filter);
         }
 
-        public Entity GetSingle(Expression<Func<Entity, bool>> filter)
-        {
-            return Table.SingleOrDefault(filter);
-        }
-        public Entity GetFirst(Expression<Func<Entity, bool>> filter)
-        {
-            return Table.FirstOrDefault(filter);
-        }
+        public Entity GetSingle(Expression<Func<Entity, bool>> filter) => Table.SingleOrDefault(filter);
+        //{
+        //    return Table.SingleOrDefault(filter);
+        //}
+
+        public Entity GetFirst(Expression<Func<Entity, bool>> filter) => Table.FirstOrDefault(filter);
+        //{
+        //    return Table.FirstOrDefault(filter);
+        //}
 
 
-        public async Task<Entity> GetSingleAsync(Expression<Func<Entity, bool>> filter)
-        {
-            return await Table.SingleOrDefaultAsync(filter);
-        }
+        public async Task<Entity> GetSingleAsync(Expression<Func<Entity, bool>> filter) => await Table.SingleOrDefaultAsync(filter);
+        //{
+        //    return await Table.SingleOrDefaultAsync(filter);
+        //}
         
 
-        public async Task<Entity> GetFirstAsync(Expression<Func<Entity, bool>> filter)
-        {
-            return await Table.FirstOrDefaultAsync(filter);
-        }
+        public async Task<Entity> GetFirstAsync(Expression<Func<Entity, bool>> filter) => await Table.FirstOrDefaultAsync(filter);
+        //{
+        //    return await Table.FirstOrDefaultAsync(filter);
+        //}
     }
 }

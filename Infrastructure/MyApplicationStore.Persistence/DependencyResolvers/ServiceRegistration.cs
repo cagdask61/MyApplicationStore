@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using MyApplicationStore.Application.Repositories.AppRepositories;
 using MyApplicationStore.Persistence.Configurations;
 using MyApplicationStore.Persistence.Contexts;
 using System;
@@ -20,6 +21,10 @@ namespace MyApplicationStore.Persistence.DependencyResolvers
                 options.UseSqlServer(SystemConfiguration.ConnectionString());
 
             });
+
+            services.AddScoped<IAppReadRepository,AppReadRepository>();
+            services.AddScoped<IAppWriteRepository, AppWriteRepository>();
+
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using MyApplicationStore.Application.Repositories.Base;
+﻿using MyApplicationStore.Application.Repositories.AppRepositories;
 using MyApplicationStore.Domain.Entitites.Concrete;
 using MyApplicationStore.Persistence.Contexts;
-using MyApplicationStore.Persistence.Repositoties.Base;
+using MyApplicationStore.Persistence.Repositories.Base;
 
-namespace MyApplicationStore.Application.Repositories.AppRepositories
+namespace MyApplicationStore.Persistence.Repositories.AppRepositories
 {
     public class AppReadRepository : EntityReadRepositoryBase<App>, IAppReadRepository
     {

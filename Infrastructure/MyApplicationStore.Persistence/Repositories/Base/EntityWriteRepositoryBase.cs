@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyApplicationStore.Persistence.Repositoties.Base
+namespace MyApplicationStore.Persistence.Repositories.Base
 {
     public class EntityWriteRepositoryBase<Entity> : IEntityWriteRepository<Entity>
         where Entity : class, IEntity

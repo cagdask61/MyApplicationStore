@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyApplicationStore.Persistence.Repositoties.Base
+namespace MyApplicationStore.Persistence.Repositories.Base
 {
     public class EntityReadRepositoryBase<Entity> : IEntityReadRepository<Entity>
         where Entity : class, IEntity

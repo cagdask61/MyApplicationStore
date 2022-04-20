@@ -1,9 +1,9 @@
-﻿using MyApplicationStore.Application.Repositories.Base;
+﻿using MyApplicationStore.Application.Repositories.DeveloperRepositories;
 using MyApplicationStore.Domain.Entitites.Concrete;
 using MyApplicationStore.Persistence.Contexts;
-using MyApplicationStore.Persistence.Repositoties.Base;
+using MyApplicationStore.Persistence.Repositories.Base;
 
-namespace MyApplicationStore.Application.Repositories.DeveloperRepositories
+namespace MyApplicationStore.Persistence.Repositories.DeveloperRepositories
 {
     public class DeveloperWriteRepository : EntityWriteRepositoryBase<Developer>,IDeveloperWriteRepository
     {

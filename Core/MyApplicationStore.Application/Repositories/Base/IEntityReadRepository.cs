@@ -17,5 +17,13 @@ namespace MyApplicationStore.Application.Repositories.Base
 
         Task<Entity> GetSingleAsync(Expression<Func<Entity, bool>> filter);
         Task<Entity> GetFirstAsync(Expression<Func<Entity, bool>> filter);
+
+
+        IQueryable<Entity> GetAllNoTracking(Expression<Func<Entity, bool>>? filter = null);
+        Entity GetSingleNoTracking(Expression<Func<Entity, bool>> filter);
+        Entity GetFirstNoTracking(Expression<Func<Entity, bool>> filter);
+
+        Task<Entity> GetSingleAsyncNoTracking(Expression<Func<Entity, bool>> filter);
+        Task<Entity> GetFirstAsyncNoTracking(Expression<Func<Entity, bool>> filter);
     }
 }

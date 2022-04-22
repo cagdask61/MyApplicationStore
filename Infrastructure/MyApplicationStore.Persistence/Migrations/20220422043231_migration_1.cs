@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyApplicationStore.Persistence.Migrations
 {
-    public partial class Migration_1 : Migration
+    public partial class migration_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace MyApplicationStore.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(30)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     IsApproved = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -31,7 +31,7 @@ namespace MyApplicationStore.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(20)", nullable: false),
                     lastName = table.Column<string>(type: "nvarchar(20)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(40)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     PasswordSalt = table.Column<byte[]>(type: "varbinary(500)", nullable: false),
                     PasswordHash = table.Column<byte[]>(type: "varbinary(500)", nullable: false),
                     IsApproved = table.Column<bool>(type: "bit", nullable: false)
@@ -68,7 +68,9 @@ namespace MyApplicationStore.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     DeveloperId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(40)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsApproved = table.Column<bool>(type: "bit", nullable: false)
                 },

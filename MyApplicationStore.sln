@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{3D265318-E661-42A8-89C9-81BC489FF634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApplicationStore.Domain", "Core\MyApplicationStore.Domain\MyApplicationStore.Domain.csproj", "{F71300C7-1413-411F-9D1F-194DFFD55B1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApplicationStore.Domain", "Core\MyApplicationStore.Domain\MyApplicationStore.Domain.csproj", "{F71300C7-1413-411F-9D1F-194DFFD55B1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApplicationStore.Application", "Core\MyApplicationStore.Application\MyApplicationStore.Application.csproj", "{3F4B696A-AE7F-4BD1-BF2A-659E738321F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApplicationStore.Application", "Core\MyApplicationStore.Application\MyApplicationStore.Application.csproj", "{3F4B696A-AE7F-4BD1-BF2A-659E738321F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApplicationStore.Infrastructure", "Infrastructure\MyApplicationStore.Infrastructure\MyApplicationStore.Infrastructure.csproj", "{8567D2D4-8E48-4BDD-984E-37DAE90C9E75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApplicationStore.Infrastructure", "Infrastructure\MyApplicationStore.Infrastructure\MyApplicationStore.Infrastructure.csproj", "{8567D2D4-8E48-4BDD-984E-37DAE90C9E75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApplicationStore.Persistence", "Infrastructure\MyApplicationStore.Persistence\MyApplicationStore.Persistence.csproj", "{B69D4C6C-30C0-435D-8A5B-51552250FDFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApplicationStore.Persistence", "Infrastructure\MyApplicationStore.Persistence\MyApplicationStore.Persistence.csproj", "{B69D4C6C-30C0-435D-8A5B-51552250FDFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApplicationStore.WebAPI", "Presentation\MyApplicationStore.WebAPI\MyApplicationStore.WebAPI.csproj", "{8CA74B34-CB75-4370-BE68-ABAA741425F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApplicationStore.WebAPI", "Presentation\MyApplicationStore.WebAPI\MyApplicationStore.WebAPI.csproj", "{8CA74B34-CB75-4370-BE68-ABAA741425F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

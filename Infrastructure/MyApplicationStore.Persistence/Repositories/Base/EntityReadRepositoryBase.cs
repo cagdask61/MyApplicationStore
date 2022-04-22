@@ -23,59 +23,69 @@ namespace MyApplicationStore.Persistence.Repositories.Base
 
         public DbSet<Entity> Table => _context.Set<Entity>();
 
-        public IQueryable<Entity> GetAll(Expression<Func<Entity, bool>>? filter = null)
-        {
-            return filter == null ? Table : Table.Where(filter);
-        }       
 
-        public Entity GetFirst(Expression<Func<Entity, bool>> filter)
-        {
-            return Table.FirstOrDefault(filter);
-        }
-
-        public async Task<Entity> GetFirstAsync(Expression<Func<Entity, bool>> filter)
-        {
-            return  await Table.FirstOrDefaultAsync(filter);
-        }
-
-        public Entity GetSingle(Expression<Func<Entity, bool>> filter)
-        {
-            return Table.SingleOrDefault(filter);
-        }
-
-
-        public async Task<Entity> GetSingleAsync(Expression<Func<Entity, bool>> filter)
-        {
-            return await Table.SingleOrDefaultAsync(filter);
-        }
-
-        // No Tracking 
-        public IQueryable<Entity> GetAllNoTracking(Expression<Func<Entity, bool>>? filter = null)
+        public IQueryable<Entity> GetAll(bool tracking = false)
         {
             var query = Table.AsQueryable();
-            return filter == null ? query.AsNoTracking() : query.Where(filter).AsNoTracking();
+            if (tracking == false)
+            {
+                query = query.AsNoTracking();
+            }
+            return query;
         }
 
-        public Entity GetSingleNoTracking(Expression<Func<Entity, bool>> filter)
+        public IQueryable<Entity> GetAll(Expression<Func<Entity, bool>> filter, bool tracking = false)
         {
-            return Table.AsQueryable().AsNoTracking().SingleOrDefault(filter);
+            var query = Table.Where(filter);
+            if (tracking == false)
+            {
+                query = query.AsNoTracking();
+            }
+            return query;
         }
 
-        public Entity GetFirstNoTracking(Expression<Func<Entity, bool>> filter)
-        {
-            return Table.AsQueryable().AsNoTracking().FirstOrDefault(filter);
-        }               
 
-        public async Task<Entity> GetSingleAsyncNoTracking(Expression<Func<Entity, bool>> filter)
+        public Entity GetFirst(Expression<Func<Entity, bool>> filter, bool tracking = false)
         {
-            return await Table.AsQueryable().AsNoTracking().SingleOrDefaultAsync(filter);
+            var query = Table.AsQueryable();
+            if (tracking == false)
+            {
+                query = query.AsNoTracking();
+            }
+            return query.FirstOrDefault(filter);
+        }
+        public Entity GetSingle(Expression<Func<Entity, bool>> filter, bool tracking = false)
+        {
+            var query = Table.AsQueryable();
+            if (tracking == false)
+            {
+                query = query.AsNoTracking();
+            }
+            return query.SingleOrDefault(filter);
         }
 
-        public async Task<Entity> GetFirstAsyncNoTracking(Expression<Func<Entity, bool>> filter)
+
+        public async Task<Entity> GetFirstAsync(Expression<Func<Entity, bool>> filter, bool tracking = false)
         {
-            return await Table.AsQueryable().AsNoTracking().FirstOrDefaultAsync(filter);
+            var query = Table.AsQueryable();
+            if (tracking == false)
+            {
+                query = query.AsNoTracking();
+            }
+            return await query.FirstOrDefaultAsync(filter);
         }
 
-        
+        public async Task<Entity> GetSingleAsync(Expression<Func<Entity, bool>> filter, bool tracking = false)
+        {
+            var query = Table.AsQueryable();
+            if (tracking == false)
+            {
+                query = query.AsNoTracking();
+            }
+            return await query.SingleOrDefaultAsync(filter);
+        }
+
+
+
     }
 }

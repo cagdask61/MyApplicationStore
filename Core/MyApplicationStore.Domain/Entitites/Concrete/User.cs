@@ -1,8 +1,9 @@
 ﻿using MyApplicationStore.Domain.Entitites.Abstract;
+using MyApplicationStore.Domain.Entitites.Base;
 
 namespace MyApplicationStore.Domain.Entitites.Concrete
 {
-    public class User : IEntity
+    public class User : BaseEntity
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

@@ -1,4 +1,5 @@
 ﻿using MyApplicationStore.Domain.Entitites.Abstract;
+using MyApplicationStore.Domain.Entitites.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +12,15 @@ namespace MyApplicationStore.Application.Repositories.Base
     public interface IEntityReadRepository<Entity> : IEntityRepository<Entity>
         where Entity : class, IEntity
     {
-        IQueryable<Entity> GetAll(Expression<Func<Entity,bool>>? filter = null);
-        Entity GetSingle(Expression<Func<Entity, bool>> filter);
-        Entity GetFirst(Expression<Func<Entity, bool>> filter);
+        IQueryable<Entity> GetAll(bool tracking = false);
+        IQueryable<Entity> GetAll(Expression<Func<Entity, bool>> filter, bool tracking = false);
 
-        Task<Entity> GetSingleAsync(Expression<Func<Entity, bool>> filter);
-        Task<Entity> GetFirstAsync(Expression<Func<Entity, bool>> filter);
+        Entity GetSingle(Expression<Func<Entity, bool>> filter, bool tracking = false);
+        Entity GetFirst(Expression<Func<Entity, bool>> filter, bool tracking = false);
+
+        Task<Entity> GetSingleAsync(Expression<Func<Entity, bool>> filter, bool tracking = false);
+        Task<Entity> GetFirstAsync(Expression<Func<Entity, bool>> filter, bool tracking = false);
 
 
-        IQueryable<Entity> GetAllNoTracking(Expression<Func<Entity, bool>>? filter = null);
-        Entity GetSingleNoTracking(Expression<Func<Entity, bool>> filter);
-        Entity GetFirstNoTracking(Expression<Func<Entity, bool>> filter);
-
-        Task<Entity> GetSingleAsyncNoTracking(Expression<Func<Entity, bool>> filter);
-        Task<Entity> GetFirstAsyncNoTracking(Expression<Func<Entity, bool>> filter);
     }
 }

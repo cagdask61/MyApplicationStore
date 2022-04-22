@@ -12,8 +12,8 @@ using MyApplicationStore.Persistence.Contexts;
 namespace MyApplicationStore.Persistence.Migrations
 {
     [DbContext(typeof(MyApplicationStoreDbContext))]
-    [Migration("20220417195928_Migration_1")]
-    partial class Migration_1
+    [Migration("20220422043231_migration_1")]
+    partial class migration_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,9 @@ namespace MyApplicationStore.Persistence.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -48,6 +51,9 @@ namespace MyApplicationStore.Persistence.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

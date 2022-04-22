@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyApplicationStore.Domain.Entitites.Base
 {
-    public class FullEntity : BaseEntity
+    public class FullEntity : Entity
     {
         public string Name { get; set; }
         public string Description { get; set; }

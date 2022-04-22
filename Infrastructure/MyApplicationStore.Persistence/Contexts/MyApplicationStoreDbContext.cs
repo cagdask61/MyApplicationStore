@@ -23,10 +23,23 @@ namespace MyApplicationStore.Persistence.Contexts
 
         public override int SaveChanges()
         {
-            var entities = base.ChangeTracker.Entries<BaseEntity>();
+            var entities = base.ChangeTracker.Entries<Entity>();
 
+            foreach (var item in entities)
+            {
+                switch (item.State)
+                {
+                    case EntityState.Added:
+                        item.Entity.CreatedDate = DateTime.Now;
+                        break;
+                    case EntityState.Modified:
+                        item.Entity.UpdatedDate = DateTime.Now;
+                        break;
+                }
+            }
 
             return base.SaveChanges();
         }
+
     }
 }

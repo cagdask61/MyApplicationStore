@@ -12,7 +12,7 @@ namespace MyApplicationStore.Domain.Entitites.Base
     //    public TKey Id { get; set; }
     //}
 
-    public class BaseEntity : IEntity
+    public class Entity : IEntity
     {
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }

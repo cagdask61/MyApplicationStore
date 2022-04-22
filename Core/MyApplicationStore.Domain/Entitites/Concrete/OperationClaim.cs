@@ -3,7 +3,7 @@ using MyApplicationStore.Domain.Entitites.Base;
 
 namespace MyApplicationStore.Domain.Entitites.Concrete
 {
-    public class OperationClaim : BaseEntity
+    public class OperationClaim : Entity
     {
         public int Id { get; set; }
         public string Name { get; set; }

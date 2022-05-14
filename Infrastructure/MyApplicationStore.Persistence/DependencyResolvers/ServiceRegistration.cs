@@ -23,7 +23,7 @@ namespace MyApplicationStore.Persistence.DependencyResolvers
 
         public static void AddPersistenceServices(this IServiceCollection services)
         {
-            services.AddDbContext<MyApplicationStoreDbContext>(options => options.UseSqlServer(SystemConfiguration.ConnectionString()));
+            services.AddDbContext<MyApplicationStoreDbContext>(options => options.UseSqlServer(ConnectionStringConfiguration.Configure() ));
 
             services.AddScoped<IAppReadRepository,AppReadRepository>();
             services.AddScoped<IAppWriteRepository, AppWriteRepository>();

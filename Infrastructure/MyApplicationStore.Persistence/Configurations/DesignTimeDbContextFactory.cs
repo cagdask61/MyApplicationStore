@@ -14,7 +14,7 @@ namespace MyApplicationStore.Persistence.Configurations
         public MyApplicationStoreDbContext CreateDbContext(string[] args)
         {
             DbContextOptionsBuilder<MyApplicationStoreDbContext> dbContextOptionsBuilder = new();
-            dbContextOptionsBuilder.UseSqlServer(SystemConfiguration.ConnectionString());
+            dbContextOptionsBuilder.UseSqlServer(ConnectionStringConfiguration.ConnectionString());
             return new MyApplicationStoreDbContext(dbContextOptionsBuilder.Options);
         }
     }

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace MyApplicationStore.Persistence.Configurations
 {
-    public static class SystemConfiguration
+    public static class ConnectionStringConfiguration
     {
-        public static string ConnectionString()
+        public static string Configure(string connectionString = "MsSql")
         {
             ConfigurationManager configurationManager = new();
             configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/MyApplicationStore.WebAPI"));
             configurationManager.AddJsonFile("appsettings.json");
-            return configurationManager.GetConnectionString("MsSQL");
+            return configurationManager.GetConnectionString(connectionString);
         }
 
     }

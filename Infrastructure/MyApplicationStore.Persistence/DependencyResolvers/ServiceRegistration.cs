@@ -20,11 +20,8 @@ namespace MyApplicationStore.Persistence.DependencyResolvers
 {
     public static class ServiceRegistration
     {
-
         public static void AddPersistenceServices(this IServiceCollection services)
-        {
-            services.AddDbContext<MyApplicationStoreDbContext>(options => options.UseSqlServer(ConnectionStringConfiguration.Configure()));
-
+        {            
             services.AddScoped<IAppReadRepository,AppReadRepository>();
             services.AddScoped<IAppWriteRepository, AppWriteRepository>();
 
@@ -36,8 +33,6 @@ namespace MyApplicationStore.Persistence.DependencyResolvers
 
             services.AddScoped<IDeveloperReadRepository, DeveloperReadRepository>();
             services.AddScoped<IDeveloperWriteRepository, DeveloperWriteRepository>();
-
-
         }
     }
 }

@@ -9,6 +9,7 @@ namespace MyApplicationStore.Persistence.Configurations
 {
     public static class ConnectionStringConfiguration
     {
+        //private static ConfigurationManager ConfigurationManager { get; set; } = new();
         public static string Configure(string connectionString = "MsSql")
         {
             ConfigurationManager configurationManager = new();
@@ -17,5 +18,6 @@ namespace MyApplicationStore.Persistence.Configurations
             return configurationManager.GetConnectionString(connectionString);
         }
 
+      
     }
 }

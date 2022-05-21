@@ -14,7 +14,9 @@ namespace MyApplicationStore.Persistence.DependencyResolvers
     {
         public static void AddDbContexts(this IServiceCollection services)
         {
-            services.AddDbContext<MyApplicationStoreDbContext>(options => options.UseSqlServer(ConnectionStringConfiguration.Configure()));
+            services.AddDbContext<MyApplicationStoreDbContext>(options => options.UseSqlServer(ConnectionStringConfiguration.Configure()),ServiceLifetime.Scoped);
+
+            //services.AddDbContext<MyApplicationStoreDbContext, MsSqlDbContext>(options => options.UseSqlServer(ConnectionStringConfiguration.Configure()));
         }
     }
 }

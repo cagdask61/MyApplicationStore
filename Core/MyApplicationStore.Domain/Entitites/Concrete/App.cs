@@ -16,6 +16,7 @@ namespace MyApplicationStore.Domain.Entitites.Concrete
 
         public string Name { get; set; }
         public string Description { get; set; }
+        public string VersionNumber { get; set; }
         public bool IsApproved { get; set; }
 
 

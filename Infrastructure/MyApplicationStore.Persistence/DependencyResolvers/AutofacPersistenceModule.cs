@@ -21,17 +21,17 @@ namespace MyApplicationStore.Persistence.DependencyResolvers
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<AppReadRepository>().As<IAppReadRepository>();
-            builder.RegisterType<AppWriteRepository>().As<IAppWriteRepository>();
+            builder.RegisterType<AppReadRepository>().As<IAppReadRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<AppWriteRepository>().As<IAppWriteRepository>().InstancePerLifetimeScope();
 
-            builder.RegisterType<CategoryReadRepository>().As<ICategoryReadRepository>();
-            builder.RegisterType<CategoryWriteRepository>().As<ICategoryWriteRepository>();
+            builder.RegisterType<CategoryReadRepository>().As<ICategoryReadRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<CategoryWriteRepository>().As<ICategoryWriteRepository>().InstancePerLifetimeScope();
 
-            builder.RegisterType<UserReadRepository>().As<IUserReadRepository>();
-            builder.RegisterType<UserWriteRepository>().As<IUserWriteRepository>();
+            builder.RegisterType<UserReadRepository>().As<IUserReadRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<UserWriteRepository>().As<IUserWriteRepository>().InstancePerLifetimeScope();
 
-            builder.RegisterType<DeveloperReadRepository>().As<IDeveloperReadRepository>();
-            builder.RegisterType<DeveloperWriteRepository>().As<IDeveloperWriteRepository>();
+            builder.RegisterType<DeveloperReadRepository>().As<IDeveloperReadRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<DeveloperWriteRepository>().As<IDeveloperWriteRepository>().InstancePerLifetimeScope();
 
         }
     }

@@ -40,5 +40,13 @@ namespace MyApplicationStore.WebAPI.Controllers
             var result = _categoryWriteRepository.Save();
             return Ok(result);
         }
+
+        [HttpDelete("delete")]
+        public IActionResult Delete(Category category)
+        {
+            _categoryWriteRepository.Delete(category);
+            var result = _categoryWriteRepository.Save();
+            return Ok(result);
+        }
     }
 }

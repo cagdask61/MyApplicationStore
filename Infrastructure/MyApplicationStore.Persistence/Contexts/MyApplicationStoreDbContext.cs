@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using MyApplicationStore.Domain.Entitites.Base;
 using MyApplicationStore.Domain.Entitites.Concrete;
+using MyApplicationStore.Persistence.Configurations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +13,11 @@ namespace MyApplicationStore.Persistence.Contexts
 {
     public class MyApplicationStoreDbContext : DbContext
     {
-        public MyApplicationStoreDbContext(DbContextOptions options):base(options)
-        {                
+        public MyApplicationStoreDbContext(DbContextOptions<MyApplicationStoreDbContext> options):base(options)
+        {
+        }
+        protected MyApplicationStoreDbContext(DbContextOptions options) : base(options)
+        {
         }
 
         public DbSet<User> Users { get; set; }
@@ -23,48 +28,43 @@ namespace MyApplicationStore.Persistence.Contexts
 
         public override int SaveChanges()
         {
-            var entities = base.ChangeTracker.Entries<Entity>();
+            var datas = ChangeTracker.Entries<Entity>();
 
-            foreach (var item in entities)
+            foreach (var data in datas)
             {
-                switch (item.State)
+                _ = data.State switch
                 {
-                    case EntityState.Added:
-                        item.Entity.CreatedDate = DateTime.Now;
-                        break;
-                    case EntityState.Modified:
-                        item.Entity.UpdatedDate = DateTime.Now;
-                        break;
-                }
-
-                //_ = item.State switch
-                //{
-                //    EntityState.Added => item.Entity.CreatedDate = DateTime.UtcNow,
-                //    EntityState.Modified => item.Entity.UpdatedDate = DateTime.UtcNow,
-                //    _ => DateTime.UtcNow
-                //};
+                    EntityState.Added => data.Entity.CreatedDate = DateTime.Now,
+                    EntityState.Modified => data.Entity.UpdatedDate = DateTime.Now,
+                    _ => DateTime.Now
+                };
             }
-
             return base.SaveChanges();
         }
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            var entities = base.ChangeTracker.Entries<Entity>();
+            var datas = ChangeTracker.Entries<Entity>();
 
-            foreach (var item in entities)
+            foreach (var data in datas)
             {
-                switch (item.State)
+                _ = data.State switch
                 {
-                    case EntityState.Added:
-                        item.Entity.CreatedDate = DateTime.Now;
-                        break;
-                    case EntityState.Modified:
-                        item.Entity.UpdatedDate = DateTime.Now;
-                        break;
-                }
+                    EntityState.Added => data.Entity.CreatedDate = DateTime.Now,
+                    EntityState.Modified => data.Entity.UpdatedDate = DateTime.Now,
+                    _ => DateTime.Now
+                };
             }
-            return base.SaveChangesAsync(cancellationToken);
+            return await base.SaveChangesAsync(cancellationToken);
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(ConnectionStringConfiguration.Configure());
+            }
+        }
+
     }
 }
